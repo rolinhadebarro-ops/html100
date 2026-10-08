@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Feed</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            color: #222;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        header h1 {
+            color: #e1306c;
+        }
+
+        .feed {
+            width: 600px;
+            max-width: 95%;
+            margin: 30px auto;
+        }
+
+        .post {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            gap: 10px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .post-header strong {
+            font-size: 15px;
+        }
+
+        .post img.post-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .post-content {
+            padding: 15px;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .like-button {
+            border: none;
+            background: none;
+            font-size: 28px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .like-button:hover {
+            transform: scale(1.15);
+        }
+
+        .like-button.liked {
+            color: #e1306c;
+        }
+
+        .likes {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .caption {
+            line-height: 1.5;
+        }
+
+        .date {
+            color: #888;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .post img.post-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Meu Feed</h1>
+    </header>
+
+    <main class="feed">
+
+        <!-- POST 1 -->
+        <article class="post">
+            <div class="post-header">
+                <img class="avatar"
+                     src="https://i.pravatar.cc/100?img=12"
+                     alt="Avatar">
+                <strong>Maria</strong>
+            </div>
+
+            <img class="post-image"
+                 src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80"
+                 alt="Paisagem">
+
+            <div class="post-content">
+                <div class="actions">
+                    <button class="like-button" onclick="curtir(this)">♡</button>
+                </div>
+
+                <div class="likes">
+                    <span>124</span> curtidas
+                </div>
+
+                <p class="caption">
+                    <strong>Maria</strong> Que lugar incrível! 🌅
+                </p>
+
+                <p class="date">Há 2 horas</p>
+            </div>
+        </article>
+
+
+        <!-- POST 2 -->
+        <article class="post">
+            <div class="post-header">
+                <img class="avatar"
+                     src="https://i.pravatar.cc/100?img=33"
+                     alt="Avatar">
+                <strong>Lucas</strong>
+            </div>
+
+            <img class="post-image"
+                 src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80"
+                 alt="Pessoa sorrindo">
+
+            <div class="post-content">
+                <div class="actions">
+                    <button class="like-button" onclick="curtir(this)">♡</button>
+                </div>
+
+                <div class="likes">
+                    <span>89</span> curtidas
+                </div>
+
+                <p class="caption">
+                    <strong>Lucas</strong> Aproveitando muito o dia! ☀️
+                </p>
+
+                <p class="date">Há 5 horas</p>
+            </div>
+        </article>
+
+
+        <!-- POST 3 -->
+        <article class="post">
+            <div class="post-header">
+                <img class="avatar"
+                     src="https://i.pravatar.cc/100?img=47"
+                     alt="Avatar">
+                <strong>Júlia</strong>
+            </div>
+
+            <img class="post-image"
+                 src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=80"
+                 alt="Plantas">
+
+            <div class="post-content">
+                <div class="actions">
+                    <button class="like-button" onclick="curtir(this)">♡</button>
+                </div>
+
+                <div class="likes">
+                    <span>215</span> curtidas
+                </div>
+
+                <p class="caption">
+                    <strong>Júlia</strong> Um pouco de natureza para deixar o dia mais bonito 🌱💚
+                </p>
+
+                <p class="date">Ontem</p>
+            </div>
+        </article>
+
+
+        <!-- POST 4 -->
+        <article class="post">
+            <div class="post-header">
+                <img class="avatar"
+                     src="https://i.pravatar.cc/100?img=5"
+                     alt="Avatar">
+                <strong>Pedro</strong>
+            </div>
+
+            <img class="post-image"
+                 src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=900&q=80"
+                 alt="Montanhas">
+
+            <div class="post-content">
+                <div class="actions">
+                    <button class="like-button" onclick="curtir(this)">♡</button>
+                </div>
+
+                <div class="likes">
+                    <span>342</span> curtidas
+                </div>
+
+                <p class="caption">
+                    <strong>Pedro</strong> Nada melhor que viajar e conhecer lugares novos! 🏔️
+                </p>
+
+                <p class="date">Há 2 dias</p>
+            </div>
+        </article>
+
+    </main>
+
+
+    <script>
+        function curtir(botao) {
+            const post = botao.closest(".post");
+            const contador = post.querySelector(".likes span");
+
+            let curtidas = parseInt(contador.textContent);
+
+            if (botao.classList.contains("liked")) {
+                curtidas--;
+                botao.classList.remove("liked");
+                botao.innerHTML = "♡";
+            } else {
+                curtidas++;
+                botao.classList.add("liked");
+                botao.innerHTML = "♥";
+            }
+
+            contador.textContent = curtidas;
+        }
+    </script>
+
+</body>
+</html>
